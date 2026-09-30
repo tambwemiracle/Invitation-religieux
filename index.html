@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Mariage Religieux - Cedric & Gloria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --bg-color: #0A1622;         /* Bleu Nuit Profond */
+            --card-bg: #FFFFFF;          /* Blanc Ivoire */
+            --primary: #58111A;          /* Rouge Bordeaux / Bourgogne */
+            --secondary: #0F2537;        /* Bleu Marine / Nuit */
+            --gold: #C5A059;             /* Or Laiton / Doré */
+            --gold-light: #E8D3A7;       /* Or Clair */
+            --text-dark: #1F2937;
+            --text-muted: #556070;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at center, #1A2F4C 0%, #0A1622 100%);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        .invitation-card {
+            width: 100%;
+            max-width: 460px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+            border: 2px solid var(--gold);
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 380px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        }
+
+        .monogram-container {
+            margin-top: -45px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .monogram {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto;
+            border: 2px solid var(--gold);
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .monogram-text {
+            transform: rotate(-45deg);
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 20px 30px 35px 30px;
+        }
+
+        .label-invitation {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 11px;
+            color: var(--gold);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .families-text {
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .families-text strong {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .guest-card-info {
+            background-color: #F8F5EF;
+            border: 1px dashed var(--gold);
+            padding: 10px 16px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .guest-name {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .table-assigned {
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .details-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 22px;
+            font-style: italic;
+        }
+
+        .schedule-box {
+            background-color: #0F2537;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 16px 12px;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+        }
+
+        .schedule-date {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .schedule-time {
+            font-size: 12px;
+            color: #E2E8F0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .schedule-time strong {
+            color: #FFFFFF;
+        }
+
+        .dress-code-box {
+            background-color: #FDFBF7;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 22px;
+        }
+
+        .dress-code-title {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .dress-code-colors {
+            font-size: 12px;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .color-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-blue { background-color: #002366; }
+        .dot-bordeaux { background-color: #58111A; }
+        .dot-black { background-color: #111111; }
+
+        .countdown-title {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .countdown-item {
+            background: #FDFBF7;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 6px 10px;
+            min-width: 55px;
+        }
+
+        .countdown-value {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .countdown-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .location-box {
+            font-size: 11px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .location-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .repere {
+            margin-top: 4px;
+            font-style: italic;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--gold);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-map:hover {
+            background-color: #F8F5EF;
+            color: var(--primary);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-rsvp {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #3B090E 100%);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(88, 17, 26, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-rsvp-secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #06111B 100%);
+        }
+
+        .btn-rsvp:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <div class="photo-container">
+            <img src="image1.jpeg" alt="Cedric et Gloria">
+            <div class="photo-overlay"></div>
+        </div>
+
+        <div class="monogram-container">
+            <div class="monogram">
+                <span class="monogram-text">CG</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="label-invitation">Mariage Religieux & Soirée Dansante</div>
+            <div class="couple-names">Cedric & Gloria</div>
+
+            <div class="families-text">
+                Ensemble avec leurs familles,<br>
+                <strong>KANYANGU</strong> & <strong>MWEMWE</strong><br>
+                ont la joie de vous inviter à la bénédiction nuptiale suivi de la soirée festive.
+            </div>
+
+            <div class="guest-card-info">
+                <div class="guest-name" id="guestName">Invité d'Honneur</div>
+                <div class="table-assigned" id="guestTable">Table Réservée</div>
+            </div>
+
+            <div class="details-text">
+                Vos prières et votre présence honoreront grandement notre union devant Dieu et devant les hommes.
+            </div>
+
+            <div class="schedule-box">
+                <div class="schedule-date">Samedi 17 Octobre 2026</div>
+                <div class="schedule-time">
+                    <span><strong>Bénédiction :</strong> 09h00</span>
+                    <span>•</span>
+                    <span><strong>Réception :</strong> 18h00</span>
+                </div>
+            </div>
+
+            <div class="dress-code-box">
+                <div class="dress-code-title">✨ Dress Code Soirée ✨</div>
+                <div class="dress-code-colors">
+                    <span><span class="color-dot dot-blue"></span> Bleu Nuit (Royal)</span>
+                    <span><span class="color-dot dot-bordeaux"></span> Bordeaux</span>
+                    <span><span class="color-dot dot-black"></span> Noir</span>
+                </div>
+            </div>
+
+            <div class="countdown-title">Le Grand Jour dans</div>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Jours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Heures</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Min</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Sec</div>
+                </div>
+            </div>
+
+            <div class="location-box">
+                <div class="title">Lieu du culte à l'Eglise La LOUANGE (Sanga Mamba sur route Nzolana, Arret Louange)</div>
+                <br>
+                <div class="location-title">Salle de Fête EMPREINTE (Hôtel Empreinte)</div>
+                N°1A Bis, Avenue Maduda, Quartier Makelele<br>
+                Commune de Bandalungwa, Kinshasa - RDC<br>
+                <div class="repere">Référence : L'Église de Godé MPOYI, avenue perpendiculaire à la Chaussée Kasa-Vubu</div>
+            </div>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Salle+de+Fete+EMPREINTE+Bandalungwa+Kinshasa" target="_blank" class="btn-map">
+                📍 Voir l'itinéraire sur Google Maps
+            </a>
+
+            <div class="btn-container">
+                <a id="btnWhatsapp" href="https://wa.me/243818776134?text=Bonjour,%20je%20confirms%20ma%20présence%20au%20mariage%20religieux%20de%20Cedric%20et%20Gloria !" target="_blank" class="btn-rsvp btn-rsvp-secondary">
+                    Confirmer ma présence !
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const existingPrefixes = [
+        'MAMAN', 'PAPA', 'DR', 'IR', 'PASTEUR', 'PA ', 'BERGÉ', 'BERGE',
+        'FR ', 'SR ', 'VX ', 'DA ', 'MA ', 'BI ', 'KA ', 'MR', 'MME', 'MLLE', 'M.', 'COLONEL', 'MZEE'
+    ];
+
+    const guestsList = {
+        "thomas tambwe": { name: "THOMAS TAMBWE", table: "Table 1 CARDIA", isCouple: true },
+        "tshamba": { name: "TSHAMBA", table: "Table 1 CARDIA", isCouple: true },
+        "celestin ngoy": { name: "CELESTIN NGOY", table: "Table 1 CARDIA", isCouple: true },
+        "papa mwenze": { name: "Papa MWENZE", table: "Table 1 CARDIA", isCouple: false },
+        "mlle hono": { name: "Mlle HONO", table: "Table 1 CARDIA", isCouple: false },
+        "jackson": { name: "JACKSON", table: "Table 1 CARDIA", isCouple: true },
+        "musangu": { name: "MUSANGU", table: "Table 2 ADN", isCouple: true },
+        "tambwe mwenge": { name: "TAMBWE MWENGE", table: "Table 2 ADN", isCouple: true },
+        "mwemwe": { name: "MWEMWE", table: "Table 2 ADN", isCouple: true },
+        "bi fatuma": { name: "BI FATUMA", table: "Table 2 ADN", isCouple: false },
+        "bi jeannette": { name: "BI JEANNETTE", table: "Table 2 ADN", isCouple: false },
+        "gaston": { name: "GASTON", table: "Table 2 ADN", isCouple: false },
+        "taba lose": { name: "TABA LOSE", table: "Table 2 ADN", isCouple: false },
+        "armel tambwe": { name: "ARMEL TAMBWE", table: "Table 3 OCYTOCIN", isCouple: false },
+        "souverain mwemwe": { name: "SOUVERAIN MWEMWE", table: "Table 3 OCYTOCIN", isCouple: true },
+        "ma hono": { name: "MA HONO", table: "Table 3 OCYTOCIN", isCouple: false },
+        "maman verronique": { name: "Maman Verronique", table: "Table 3 OCYTOCIN", isCouple: false },
+        "orick masudi + 2 bebes": { name: "ORICK MASUDI + 2 BEBES", table: "Table 3 OCYTOCIN", isCouple: false },
+        "mado sumbu": { name: "MADO SUMBU", table: "Table 3 OCYTOCIN", isCouple: false },
+        "tyna": { name: "TYNA", table: "Table 3 OCYTOCIN", isCouple: false },
+        "arielle tambwe": { name: "ARIELLE TAMBWE", table: "Table 3 OCYTOCIN", isCouple: false },
+        "christian kazadi": { name: "CHRISTIAN KAZADI", table: "Table 3 OCYTOCIN", isCouple: false },
+        "precidie tambwe": { name: "PRECIDIE TAMBWE", table: "Table 3 OCYTOCIN", isCouple: false },
+        "landry tambwe": { name: "LANDRY TAMBWE", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "henry tambwe": { name: "HENRY TAMBWE", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "maman mado bomolo": { name: "MAMAN MADO BOMOLO", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "maman claudine": { name: "MAMAN CLAUDINE", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "atosha saleh": { name: "ATOSHA SALEH", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "kigoma sinadra": { name: "KIGOMA SINADRA", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "papa tumba": { name: "PAPA TUMBA", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "luafa junior": { name: "LUAFA JUNIOR", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "kalala emmanuel": { name: "KALALA EMMANUEL", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "shalom nkamba": { name: "SHALOM NKAMBA", table: "Table 4 HIPPOCRATE", isCouple: false },
+        "papa fredy elongo": { name: "PAPA FREDY ELONGO", table: "Table 5 MYOCARDE", isCouple: true },
+        "papa gaella": { name: "PAPA GAELLA", table: "Table 5 MYOCARDE", isCouple: true },
+        "brg jorlin": { name: "BRG JORLIN", table: "Table 5 MYOCARDE", isCouple: true },
+        "boss": { name: "BOSS", table: "Table 5 MYOCARDE", isCouple: true },
+        "maman jeannette": { name: "MAMAN JEANNETTE", table: "Table 5 MYOCARDE", isCouple: true },
+        "maombo": { name: "MAOMBO", table: "Table 6 HEMOGLOBINE", isCouple: true },
+        "mongala": { name: "MONGALA", table: "Table 6 HEMOGLOBINE", isCouple: true },
+        "ilunga": { name: "ILUNGA", table: "Table 6 HEMOGLOBINE", isCouple: true },
+        "fbv": { name: "FBV", table: "Table 6 HEMOGLOBINE", isCouple: true },
+        "richard bahati": { name: "RICHARD BAHATI", table: "Table 6 HEMOGLOBINE", isCouple: true },
+        "nestor": { name: "NESTOR", table: "Table 7 SEROTONINE", isCouple: true },
+        "bernandin": { name: "BERNANDIN", table: "Table 7 SEROTONINE", isCouple: true },
+        "yve": { name: "YVE", table: "Table 7 SEROTONINE", isCouple: true },
+        "vital": { name: "VITAL", table: "Table 7 SEROTONINE", isCouple: true },
+        "jean-didier": { name: "JEAN-DIDIER", table: "Table 7 SEROTONINE", isCouple: true },
+        "emmanuel": { name: "EMMANUEL", table: "Table 8 DOPAMINE", isCouple: true },
+        "mzee donatien": { name: "MZEE DONATIEN", table: "Table 8 DOPAMINE", isCouple: true },
+        "mauwa": { name: "MAUWA", table: "Table 8 DOPAMINE", isCouple: true },
+        "emmanuel homo": { name: "EMMANUEL HOMO", table: "Table 8 DOPAMINE", isCouple: true },
+        "anicet": { name: "ANICET", table: "Table 8 DOPAMINE", isCouple: true },
+        "ombaseke": { name: "OMBASEKE", table: "Table 9 ENDORPHINE", isCouple: true },
+        "maman doudou": { name: "MAMAN DOUDOU", table: "Table 9 ENDORPHINE", isCouple: true },
+        "maman nzambe": { name: "MAMAN NZAMBE", table: "Table 9 ENDORPHINE", isCouple: true },
+        "papa wayalu": { name: "PAPA WAYALU", table: "Table 9 ENDORPHINE", isCouple: true },
+        "christian": { name: "CHRISTIAN", table: "Table 9 ENDORPHINE", isCouple: true },
+        "papa kalala": { name: "PAPA KALALA", table: "Table 10 SYNAPSE", isCouple: true },
+        "aravina": { name: "ARAVINA", table: "Table 10 SYNAPSE", isCouple: true },
+        "ndoy": { name: "NDOY", table: "Table 10 SYNAPSE", isCouple: true },
+        "bukamba": { name: "BUKAMBA", table: "Table 10 SYNAPSE", isCouple: true },
+        "cecelia bakambo": { name: "CECELIA BAKAMBO", table: "Table 10 SYNAPSE", isCouple: true },
+        "berlinne mafuku": { name: "BERLINNE MAFUKU", table: "Table 11 AORTE", isCouple: false },
+        "christelle bageta": { name: "CHRISTELLE BAGETA", table: "Table 11 AORTE", isCouple: false },
+        "divine maombo": { name: "DIVINE MAOMBO", table: "Table 11 AORTE", isCouple: false },
+        "samuel panzu": { name: "SAMUEL PANZU", table: "Table 11 AORTE", isCouple: false },
+        "berdy elongo": { name: "BERDY ELONGO", table: "Table 11 AORTE", isCouple: false },
+        "franklin kasongo": { name: "FRANKLIN KASONGO", table: "Table 11 AORTE", isCouple: false },
+        "nehemie lukoki": { name: "NEHEMIE LUKOKI", table: "Table 11 AORTE", isCouple: false },
+        "dorcas lukoki": { name: "DORCAS LUKOKI", table: "Table 11 AORTE", isCouple: false },
+        "dr ndombe christian": { name: "Dr NDOMBE CHRISTIAN", table: "Table 12 INSULINE", isCouple: false },
+        "dr therese mumba": { name: "Dr THERESE MUMBA", table: "Table 12 INSULINE", isCouple: false },
+        "dr rose mumba": { name: "Dr ROSE MUMBA", table: "Table 12 INSULINE", isCouple: false },
+        "dr joe mazeu": { name: "Dr JOE MAZEU", table: "Table 12 INSULINE", isCouple: false },
+        "dr paky zameo": { name: "Dr PAKY ZAMEO", table: "Table 12 INSULINE", isCouple: false },
+        "dr moba jovino": { name: "Dr MOBA JOVINO", table: "Table 12 INSULINE", isCouple: false },
+        "dr darwin kabule": { name: "Dr DARWIN KABULE", table: "Table 12 INSULINE", isCouple: false },
+        "dr androus mavoka": { name: "Dr ANDROUS MAVOKA", table: "Table 12 INSULINE", isCouple: false },
+        "dr grace tshila": { name: "Dr GRACE TSHILA", table: "Table 12 INSULINE", isCouple: false },
+        "dr doche mwamba": { name: "Dr DOCHE MWAMBA", table: "Table 12 INSULINE", isCouple: false },
+        "dr mulombo chadrack": { name: "Dr MULOMBO CHADRACK", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr anou mulenda": { name: "Dr ANOU MULENDA", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr nadimombi heritier": { name: "Dr NADIMOMBI HERITIER", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr mechack kabasele": { name: "Dr MECHACK KABASELE", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr plamedie musitu": { name: "Dr PLAMEDIE MUSITU", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr eunice mbombo": { name: "Dr EUNICE MBOMBO", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr ndjoli henock": { name: "Dr NDJOLI HENOCK", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "dr keren mulumba": { name: "Dr KEREN MULUMBA", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "alice bilali": { name: "ALICE BILALI", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "hortense kanvu": { name: "HORTENSE KANVU", table: "Table 13 HYPOCAMPE", isCouple: false },
+        "colonel mpaka": { name: "COLONEL MPAKA", table: "Table 14 HERNIORAPHIE", isCouple: true },
+        "colonel nene": { name: "COLONEL NENE", table: "Table 14 HERNIORAPHIE", isCouple: true },
+        "dr mwanda": { name: "Dr MWANDA", table: "Table 14 HERNIORAPHIE", isCouple: true },
+        "dr mazaula": { name: "Dr MAZAULA", table: "Table 14 HERNIORAPHIE", isCouple: false },
+        "dr mena": { name: "Dr MENA", table: "Table 14 HERNIORAPHIE", isCouple: true },
+        "dr lucie": { name: "Dr LUCIE", table: "Table 14 HERNIORAPHIE", isCouple: false },
+        "dr mambu": { name: "Dr MAMBU", table: "Table 15 KYSTECTOMIE", isCouple: true },
+        "dr ngeleka": { name: "Dr NGELEKA", table: "Table 15 KYSTECTOMIE", isCouple: true },
+        "dr lutambi": { name: "Dr LUTAMBI", table: "Table 15 KYSTECTOMIE", isCouple: false },
+        "dr mayitanga": { name: "Dr MAYITANGA", table: "Table 15 KYSTECTOMIE", isCouple: false },
+        "hubert": { name: "HUBERT", table: "Table 15 KYSTECTOMIE", isCouple: false },
+        "dr jeff tshomba": { name: "Dr JEFF TSHOMBA", table: "Table 15 KYSTECTOMIE", isCouple: false },
+        "pitchou masinda": { name: "PITCHOU MASINDA", table: "Table 15 KYSTECTOMIE", isCouple: false },
+        "didier lukalanga": { name: "DIDIER LUKALANGA", table: "Table 15 KYSTECTOMIE", isCouple: false },
+        "dr malonda": { name: "Dr MALONDA", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "yekwa": { name: "YEKWA", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "dr amisi": { name: "Dr AMISI", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "dr kabangu": { name: "Dr KABANGU", table: "Table 16 APPENDICECTOMIE", isCouple: true },
+        "dr jude": { name: "Dr JUDE", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "nathan": { name: "NATHAN", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "ekila": { name: "EKILA", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "mputubala": { name: "MPUTUBALA", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "luc": { name: "LUC", table: "Table 16 APPENDICECTOMIE", isCouple: false },
+        "dr eunice": { name: "Dr EUNICE", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "okele yasa": { name: "OKELE YASA", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "ir henry": { name: "Ir HENRY", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "kasongo": { name: "KASONGO", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "guelord": { name: "GUELORD", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "clement": { name: "CLEMENT", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "okito": { name: "OKITO", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "albert": { name: "ALBERT", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "ir mbuka": { name: "Ir MBUKA", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "serge olenga": { name: "SERGE OLENGA", table: "Table 17 MASTECTOMIE", isCouple: false },
+        "julie somo": { name: "JULIE SOMO", table: "Table 18 CESARIENNE", isCouple: true },
+        "vx philippe": { name: "VX PHILIPPE", table: "Table 18 CESARIENNE", isCouple: true },
+        "saleh bilungi": { name: "SALEH BILUNGI", table: "Table 18 CESARIENNE", isCouple: true },
+        "ma florance": { name: "MA FLORANCE", table: "Table 18 CESARIENNE", isCouple: false },
+        "ma magy": { name: "MA MAGY", table: "Table 18 CESARIENNE", isCouple: false },
+        "ir georges": { name: "Ir GEORGES", table: "Table 18 CESARIENNE", isCouple: false },
+        "ir souvenir": { name: "Ir SOUVENIR", table: "Table 18 CESARIENNE", isCouple: false },
+        "jc kithima": { name: "JC KITHIMA", table: "Table 19 RAPHIE", isCouple: true },
+        "dr franck": { name: "Dr FRANCK", table: "Table 19 RAPHIE", isCouple: true },
+        "papa adolph": { name: "PAPA ADOLPH", table: "Table 19 RAPHIE", isCouple: true },
+        "dorcas shongo": { name: "DORCAS SHONGO", table: "Table 19 RAPHIE", isCouple: true },
+        "kahambwe": { name: "KAHAMBWE", table: "Table 19 RAPHIE", isCouple: true },
+        "jacques amsini": { name: "JACQUES AMSINI", table: "Table 20 SPLENECTOMIE", isCouple: true },
+        "esther kasongo": { name: "ESTHER KASONGO", table: "Table 20 SPLENECTOMIE", isCouple: true },
+        "cedric mbogo": { name: "CEDRIC MBOGO", table: "Table 20 SPLENECTOMIE", isCouple: true },
+        "baudouin omari": { name: "BAUDOUIN OMARI", table: "Table 20 SPLENECTOMIE", isCouple: true },
+        "mukenge ngoy": { name: "MUKENGE NGOY", table: "Table 20 SPLENECTOMIE", isCouple: true },
+        "dr israel": { name: "Dr ISRAEL", table: "Table 21 CATALASE", isCouple: true },
+        "dr gauthier": { name: "Dr GAUTHIER", table: "Table 21 CATALASE", isCouple: false },
+        "dr josue": { name: "Dr JOSUE", table: "Table 21 CATALASE", isCouple: false },
+        "dr joel pende": { name: "Dr JOEL PENDE", table: "Table 21 CATALASE", isCouple: false },
+        "dr dina": { name: "Dr DINA", table: "Table 21 CATALASE", isCouple: false },
+        "dr mbongo kotendi": { name: "Dr MBONGO KOTENDI", table: "Table 21 CATALASE", isCouple: false },
+        "dr kendo vivi": { name: "Dr KENDO VIVI", table: "Table 21 CATALASE", isCouple: false },
+        "dr doris": { name: "Dr DORIS", table: "Table 21 CATALASE", isCouple: false },
+        "dr niclette oleko": { name: "Dr NICLETTE OLEKO", table: "Table 21 CATALASE", isCouple: false },
+        "dr ngolombe": { name: "Dr NGOLOMBE", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "dr mwanvua": { name: "Dr MWANVUA", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "dr georges": { name: "Dr GEORGES", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "dr jp": { name: "Dr JP", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "dr chanty": { name: "Dr CHANTY", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "dr roulince": { name: "Dr ROULINCE", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "maman bakesha": { name: "MAMAN BAKESHA", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "ben kapola": { name: "BEN KAPOLA", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "wars makinga": { name: "WARS MAKINGA", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "dr kakongo": { name: "Dr KAKONGO", table: "Table 22 LAPAROTOMIE", isCouple: false },
+        "maman nadinne": { name: "MAMAN NADINNE", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "meme": { name: "MEME", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "ma francine": { name: "MA FRANCINE", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "cecile": { name: "CECILE", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "ma bimoza": { name: "MA BIMOZA", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "sada": { name: "SADA", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "bijoux": { name: "BIJOUX", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "therese": { name: "THERESE", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "vandeck": { name: "VANDECK", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "dr loki": { name: "Dr LOKI", table: "Table 23 GASTRETOMIE", isCouple: false },
+        "marie safi": { name: "MARIE SAFI", table: "Table 24 CORTEX", isCouple: false },
+        "zamuda": { name: "ZAMUDA", table: "Table 24 CORTEX", isCouple: false },
+        "emannuel somo": { name: "EMANNUEL SOMO", table: "Table 24 CORTEX", isCouple: false },
+        "lomombo": { name: "LOMOMBO", table: "Table 24 CORTEX", isCouple: false },
+        "jonathan": { name: "JONATHAN", table: "Table 24 CORTEX", isCouple: false },
+        "doudou": { name: "DOUDOU", table: "Table 24 CORTEX", isCouple: false },
+        "lisalama": { name: "LISALAMA", table: "Table 24 CORTEX", isCouple: true },
+        "paul ngongo": { name: "PAUL NGONGO", table: "Table 24 CORTEX", isCouple: false },
+        "yvonne kanvu": { name: "YVONNE KANVU", table: "Table 24 CORTEX", isCouple: false }
+    };
+
+    function formatNameWithPrefix(name, isCouple) {
+        const upperName = name.toUpperCase().trim();
+        const hasExistingPrefix = existingPrefixes.some(p => upperName.startsWith(p));
+
+        if (hasExistingPrefix) {
+            return name;
+        } else {
+            if (isCouple) {
+                return `M. et Mme ${name}`;
+            } else {
+                return `Mr / Mme / Mlle ${name}`;
+            }
+        }
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let guestQuery = urlParams.get('nom') || urlParams.get('invite');
+
+    if (guestQuery) {
+        let rawName = decodeURIComponent(guestQuery).replace(/_/g, ' ').trim();
+        let cleanQuery = rawName.toLowerCase();
+        
+        let tableFound = "Table Réception";
+        let isCouple = false;
+        let matchedName = rawName;
+
+        if (guestsList[cleanQuery]) {
+            matchedName = guestsList[cleanQuery].name;
+            tableFound = guestsList[cleanQuery].table;
+            isCouple = guestsList[cleanQuery].isCouple;
+        } else {
+            for (let key in guestsList) {
+                if (cleanQuery.includes(key) || key.includes(cleanQuery)) {
+                    matchedName = guestsList[key].name;
+                    tableFound = guestsList[key].table;
+                    isCouple = guestsList[key].isCouple;
+                    break;
+                }
+            }
+        }
+
+        let formattedName = formatNameWithPrefix(matchedName, isCouple);
+        let prefix = isCouple ? "Couple : " : "Invité(e) : ";
+        
+        document.getElementById('guestName').innerText = prefix + formattedName;
+        document.getElementById('guestTable').innerText = "📍 " + tableFound;
+
+        const whatsappMessage = `Bonjour, je suis ${formattedName}. Je confirme ma présence au mariage religieux de Cedric et Gloria !`;
+        document.getElementById('btnWhatsapp').href = `https://wa.me/243818776134?text=${encodeURIComponent(whatsappMessage)}`;
+    } else {
+        document.getElementById('guestName').innerText = "Invité(e) d'Honneur";
+        document.getElementById('guestTable').innerText = "📍 Table Réception";
+    }
+
+    const targetDate = new Date('2026-10-17T09:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        } else {
+            document.querySelector('.countdown-container').innerHTML = "<div style='color: var(--primary); font-weight: bold;'>C'est le grand jour !</div>";
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    </script>
+</body>
+</html>
